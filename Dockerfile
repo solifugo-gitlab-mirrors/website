@@ -1,7 +1,7 @@
 FROM alpine:latest
 
-ENV HUGO_VERSION 0.50
-ENV HUGO_SHA 5e04ffe2e7cb0c3e1c364faca37a7f2e3e94db3d36d94ee290e3a3e1557dfc9a
+ENV HUGO_VERSION 0.51
+ENV HUGO_SHA 96579d81ea38e7ad5bc0bb675eff2be0d86d28e284cb43aa1893f627d07d4bda
 
 # Install HUGO
 RUN set -eux && \
