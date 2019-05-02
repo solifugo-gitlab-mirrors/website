@@ -4,8 +4,9 @@ image: docker:latest
 # improved performance.
 variables:
   DOCKER_DRIVER: overlay2
-  IMAGE_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-  IMAGE_LATEST: $CI_REGISTRY_IMAGE:latest
+  IMAGE_NAME: $CI_REGISTRY_IMAGE
+  IMAGE_NAME_HUGO: $CI_REGISTRY_IMAGE/hugo
+  IMAGE_NAME_HUGO_EXTENDED: $CI_REGISTRY_IMAGE/hugo_extended
 
 services:
   - docker:dind
@@ -21,17 +22,29 @@ before_script:
 test:
   stage: test
   script:
-    - docker build -t $IMAGE_NAME .
-    - docker run -v `pwd`:/git $IMAGE_NAME /bin/sh -c "wget -qO- https://fedoraproject.org/static/hotspot.txt | grep OK && cd /git && hugo"
+    - TESTS="wget -qO- https://fedoraproject.org/static/hotspot.txt | grep OK && cd /git && hugo"
+    - docker build --build-arg HUGO=hugo -t $IMAGE_NAME_HUGO .
+    - docker build --build-arg HUGO=hugo_extended -t $IMAGE_NAME_HUGO_EXTENDED .
+    - docker run -v `pwd`:/git $IMAGE_NAME_HUGO /bin/sh -c "$TESTS"
+    - docker run -v `pwd`:/git $IMAGE_NAME_HUGO_EXTENDED /bin/sh -c "$TESTS"
   except:
     - schedules
 
 deploy:
   stage: deploy
   script:
-    - docker build -t $IMAGE_NAME -t $IMAGE_LATEST .
+    - docker build --build-arg HUGO=hugo -t $IMAGE_NAME_HUGO .
+    - docker build --build-arg HUGO=hugo_extended -t $IMAGE_NAME_HUGO_EXTENDED .
+    - docker tag $IMAGE_NAME_HUGO $IMAGE_NAME
+    - docker tag $IMAGE_NAME_HUGO $IMAGE_NAME:$CI_COMMIT_REF_NAME
+    - docker tag $IMAGE_NAME_HUGO $IMAGE_NAME_HUGO:$CI_COMMIT_REF_NAME
+    - docker tag $IMAGE_NAME_HUGO_EXTENDED $IMAGE_NAME_HUGO_EXTENDED:$CI_COMMIT_REF_NAME
     - docker push $IMAGE_NAME
-    - docker push $IMAGE_LATEST
+    - docker push $IMAGE_NAME:$CI_COMMIT_REF_NAME
+    - docker push $IMAGE_NAME_HUGO
+    - docker push $IMAGE_NAME_HUGO:$CI_COMMIT_REF_NAME
+    - docker push $IMAGE_NAME_HUGO_EXTENDED
+    - docker push $IMAGE_NAME_HUGO_EXTENDED:$CI_COMMIT_REF_NAME
   only:
     - tags
 

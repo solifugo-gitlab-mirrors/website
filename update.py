@@ -62,8 +62,9 @@ for asset in release['assets']:
             exit(1)
         for line in rchecksums.text.split("\n"):
             if 'hugo_%s_Linux-64bit.tar.gz'%(release['name'][1:]) in line:
-                checksum = line[:64]
-                break
+                hugo_checksum = line[:64]
+            if 'hugo_extended_%s_Linux-64bit.tar.gz'%(release['name'][1:]) in line:
+                hugo_extended_checksum = line[:64]
 
 # Get Dockerfile from repository
 rdockerfile = requests.get('%s/projects/%s/repository/files/Dockerfile/raw?ref=registry'%(GITLAB_URL, GITLAB_PROJECT))
@@ -75,10 +76,12 @@ dockerfile = rdockerfile.text.split("\n")
 
 # Replace env variables
 for index, line in enumerate(dockerfile):
-    if "ENV HUGO_VERSION" in line:
-        dockerfile[index] = "ENV HUGO_VERSION %s"%release['name'][1:]
-    if "ENV HUGO_SHA" in line:
-        dockerfile[index] = "ENV HUGO_SHA %s"%checksum
+    if "ARG HUGO_VERSION" in line:
+        dockerfile[index] = "ARG HUGO_VERSION=%s"%release['name'][1:]
+    if "ARG HUGO_SHA" in line:
+        dockerfile[index] = "ARG HUGO_SHA=%s"%hugo_checksum
+    if "ARG HUGO_EXTENDED_SHA" in line:
+        dockerfile[index] = "ARG HUGO_EXTENDED_SHA=%s"%hugo_extended_checksum
 
 # Update Dockerfile on repository
 requestData = {
