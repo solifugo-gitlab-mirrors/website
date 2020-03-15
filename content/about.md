@@ -1,19 +1,11 @@
 +++
 title = "About"
-date = "2014-04-09"
-aliases = ["about-us","about-hugo","contact"]
+aliases = ["about-me","contact"]
 [ author ]
-  name = "Hugo Authors"
+  name = "Alessio Giovannini"
 +++
 
-Hugo is the **world’s fastest framework for building websites**. It is written in Go.
+### Who am i?
+Hi, I'm Alessio Giovannini, I was born in Rome in 1994, I have a Computer Science Bachelor Degree @ [La Sapienza](https://www.studiareinformatica.uniroma1.it/).
 
-It makes use of a variety of open source projects including:
-
-* https://github.com/russross/blackfriday
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+During my university days I had the opportunity to learn various academic notions; the most important are the study of algorithms and data structures, networks and computer architecture and the functioning of operating systems. I also had the opportunity to work in a team on various academic projects, making use of the techniques and rules of software engineering. I consider myself an extremely curious person with the constant desire to improve both socially and technically.
