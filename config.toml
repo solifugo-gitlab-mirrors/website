@@ -1,5 +1,5 @@
 baseURL = "/"
-title   = "Hi! I'm Alessio"
+title   = "Alessio Giovannini - Website"
 
 DefaultContentLanguage = "en"
 
@@ -109,6 +109,14 @@ disableHugoGeneratorInject = false
   [[params.social]]
     name = "linkedin"
     url  = "https://www.linkedin.com/in/alessio-giovannini-806336160"
+  
+  [[params.social]]
+    name = "twitter"
+    url  = "https://twitter.com/_solifugo"
+  
+  [[params.social]]
+    name = "reddit"
+    url  = "https://www.reddit.com/user/solifugo_/"
 
   [[params.social]]
     name = "telegram"

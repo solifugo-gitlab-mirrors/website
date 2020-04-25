@@ -7,7 +7,6 @@ title: Start to use NGNIX
 type:
 - post
 - posts
-weight: 10
 series:
 - Web Server
 draft: true
