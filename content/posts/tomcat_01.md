@@ -12,6 +12,6 @@ series:
 draft: true
 ---
 
-### About Tomcat
+![tomcat](/img/tomcat.jpg)
 
-# WIP
+## What is Tomcat

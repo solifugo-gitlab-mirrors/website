@@ -1,5 +1,5 @@
 baseURL = "/"
-title   = "Alessio Giovannini - Website"
+title   = "Hi! I'm Alessio"
 
 DefaultContentLanguage = "en"
 
@@ -54,10 +54,9 @@ disableHugoGeneratorInject = false
   dateformNumTime = "2020-01-01 00:01 -0700"
 
   # Metadata mostly used in document's head
-  description = "Alessio Giovannini website"
+  description = "Alessio Giovannini - Websites"
   keywords = ""
   images = [""]
-
   homeSubtitle = "CS bachelor degree @ La Sapienza"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
@@ -88,7 +87,7 @@ disableHugoGeneratorInject = false
     theme = "#252627"
 
   [params.logo]
-    logoText     = "$ guest@solifugo.dev"
+    logoText     = "$guest@solifugo.dev"
     logoHomeLink = "/"
     # Set true to remove the logo cursor entirely.
     # logoCursorDisabled = false

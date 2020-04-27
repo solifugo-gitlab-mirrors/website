@@ -11,3 +11,7 @@ series:
 - Web Server
 draft: true
 ---
+
+![ngnix](/img/ngnix.jpg)
+
+## What is NGNIX
