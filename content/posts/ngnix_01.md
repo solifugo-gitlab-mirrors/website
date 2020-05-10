@@ -14,4 +14,4 @@ draft: true
 
 ![ngnix](/img/ngnix.jpg)
 
-## What is NGNIX
+## Abount NGNIX

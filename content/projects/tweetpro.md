@@ -18,6 +18,6 @@ categories = [
 
 ### TweetPro
 
-![tweetpro](/img/tweetpro.svg)
+![tweetpro](/img/tweetpro.jpg)
 
 Tweet Pro - University Project. Framework for the analysis of the Twitter platform tweets. Creation of a Count-Min algorithm on Big Data for the identification of the most used hashtags by users and a self-made parser of tweets from JSON files (official format from the Twitter API).  Technologies used: Java.

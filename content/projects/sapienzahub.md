@@ -17,7 +17,7 @@ categories = [
 
 ### Sapienza Hub - Made by students for the students
 
-![sapienzahub](/img/sapienzahub.jpeg)
+![sapienzahub](/img/sapienzahub.jpg)
 
 Sapienza Student Network - Independent Project. Created by a group of students of the computer science faculty, it is composed of various sub-projects:
 * Exercises: container of exercises of various subjects covered during the Bachelor's Degree in Computer Science

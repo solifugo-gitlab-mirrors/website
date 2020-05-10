@@ -1,9 +1,8 @@
 baseURL = "/"
-title   = "Hi! I'm Alessio"
+title   = "Alessio Giovannini - official website"
 
 DefaultContentLanguage = "en"
 
-theme = "hello-friend-ng"
 
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"

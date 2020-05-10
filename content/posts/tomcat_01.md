@@ -14,4 +14,4 @@ draft: true
 
 ![tomcat](/img/tomcat.jpg)
 
-## What is Tomcat
+## About Tomcat
